@@ -1,0 +1,12 @@
+resources:
+  hasura_graphql_database:
+    type: postgres
+services:
+  engine:
+    image: hasura/graphql-engine:latest
+    command: graphql-engine serve --enable-console
+    port: 8080
+    resources:
+      - hasura_graphql_database
+    environment:
+      - HASURA_GRAPHQL_ACCESS_KEY=mylongsecretaccesskey
